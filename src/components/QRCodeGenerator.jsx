@@ -13,7 +13,9 @@ const QRCodeGenerator = ({ data }) => {
           // Create redirect URL pointing to the app's redirect route
           const redirectUrl = `${appBaseUrl}/redirect?destination=${encodeURIComponent(
             item.url
-          )}&utm_source=${item.utm_source}`;
+          )}&utm_source=${item.utm_source}&utm_medium=${
+            item.utm_medium
+          }&utm_campaign=${item.utm_campaign}`;
           const qrCode = await QRCode.toDataURL(redirectUrl);
           return { ...item, qrCode };
         })

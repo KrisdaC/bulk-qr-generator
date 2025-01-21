@@ -7,8 +7,10 @@ const DownloadButton = ({ qrCodes }) => {
     const zip = new JSZip();
 
     for (let i = 0; i < qrCodes.length; i++) {
-      const { qrCode, utm_source, utm_medium } = qrCodes[i];
-      const fileName = `${utm_source}_${utm_medium || "default"}.png`;
+      const { qrCode, utm_source, utm_medium, utm_campaign } = qrCodes[i];
+      const fileName = `${utm_source}_${utm_medium}_${
+        utm_campaign || "default"
+      }.png`;
 
       // Convert data URL to a Blob
       const response = await fetch(qrCode);
